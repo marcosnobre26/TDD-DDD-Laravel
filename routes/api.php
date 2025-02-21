@@ -6,6 +6,11 @@ use App\Http\Controllers\Admin\AddressController;
 use App\Http\Controllers\Admin\ClinicController;
 use App\Http\Controllers\Admin\SchedulingController;
 use App\Http\Controllers\Admin\SpecialtyController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProfessionalController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\GalleriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +62,45 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
         Route::get('/{id}', [SpecialtyController::class, 'get'])->middleware('auth:api');
         Route::delete('/{id}', [SpecialtyController::class, 'delete'])->middleware('auth:api');
     });
+
+    Route::group(['prefix'=>'users'], function(){
+        Route::get('/', [UserController::class, 'all'])->middleware('auth:api');
+        Route::post('/', [UserController::class, 'store'])->middleware('auth:api');
+        Route::put('/{id}', [UserController::class, 'update'])->middleware('auth:api');
+        Route::get('/{id}', [UserController::class, 'get'])->middleware('auth:api');
+        Route::delete('/{id}', [UserController::class, 'delete'])->middleware('auth:api');
+    });
+
+    Route::group(['prefix'=>'professionals'], function(){
+        Route::get('/', [ProfessionalController::class, 'all'])->middleware('auth:api');
+        Route::post('/', [ProfessionalController::class, 'store'])->middleware('auth:api');
+        Route::put('/{id}', [ProfessionalController::class, 'update'])->middleware('auth:api');
+        Route::get('/{id}', [ProfessionalController::class, 'get'])->middleware('auth:api');
+        Route::delete('/{id}', [ProfessionalController::class, 'delete'])->middleware('auth:api');
+    });
+
+    Route::group(['prefix'=>'services'], function(){
+        Route::get('/', [ServiceController::class, 'all'])->middleware('auth:api');
+        Route::post('/', [ServiceController::class, 'store'])->middleware('auth:api');
+        Route::put('/{id}', [ServiceController::class, 'update'])->middleware('auth:api');
+        Route::get('/{id}', [ServiceController::class, 'get'])->middleware('auth:api');
+        Route::delete('/{id}', [ServiceController::class, 'delete'])->middleware('auth:api');
+    });
+
+    Route::group(['prefix'=>'agendas'], function(){
+        Route::get('/', [AgendaController::class, 'all'])->middleware('auth:api');
+        Route::post('/', [AgendaController::class, 'store'])->middleware('auth:api');
+        Route::put('/{id}', [AgendaController::class, 'update'])->middleware('auth:api');
+        Route::get('/{id}', [AgendaController::class, 'get'])->middleware('auth:api');
+        Route::delete('/{id}', [AgendaController::class, 'delete'])->middleware('auth:api');
+    });
+
+    Route::group(['prefix'=>'galleries'], function(){
+        Route::get('/', [GalleriesController::class, 'all'])->middleware('auth:api');
+        Route::post('/', [GalleriesController::class, 'store'])->middleware('auth:api');
+        Route::put('/{id}', [GalleriesController::class, 'update'])->middleware('auth:api');
+        Route::get('/{id}', [GalleriesController::class, 'get'])->middleware('auth:api');
+        Route::delete('/{id}', [GalleriesController::class, 'delete'])->middleware('auth:api');
+    });
+
 });

@@ -20,7 +20,11 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
-        'type'
+        'phone',
+        'type',
+        'profile_picture',
+        'lat',
+        'long'
         //'gateway_customer_id'
     ];
 

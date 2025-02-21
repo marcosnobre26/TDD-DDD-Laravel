@@ -14,6 +14,11 @@ class ClinicController extends Controller
     {
         $clinic = new Clinic();
         $clinic->name = $request->name;
+        $clinic->user_id = $request->name;
+        $clinic->fantasy_name = $request->name;
+        $clinic->cnpj = $request->name;
+        $clinic->address = $request->name;
+        $clinic->description = $request->name;
         $clinic->save();
 
         return response()->json($clinic, 200);
@@ -23,6 +28,11 @@ class ClinicController extends Controller
     {
         $clinic = Clinic::where('id',$id)->first();
         $clinic->name = $request->name;
+        $clinic->user_id = $request->name;
+        $clinic->fantasy_name = $request->name;
+        $clinic->cnpj = $request->name;
+        $clinic->address = $request->name;
+        $clinic->description = $request->name;
         $clinic->save();
 
         return response()->json($clinic, 200);

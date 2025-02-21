@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Clinic extends Model
+class Professional extends Model
 {
     use HasFactory;
 
-    protected $table = 'clinic';
+    protected $table = 'professionals';
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
-        'name',
         'user_id',
-        'fantasy_name',
-        'cnpj',
-        'address',
+        'speciality',
+        'professional_register',
+        'verification_status',
         'description'
     ];
 }

@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Clinic extends Model
+class Services extends Model
 {
     use HasFactory;
 
-    protected $table = 'clinic';
+    protected $table = 'service';
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'name',
-        'user_id',
-        'fantasy_name',
-        'cnpj',
-        'address',
-        'description'
+        'description',
+        'price',
+        'type_provider',
+        'provider_id'
     ];
 }
